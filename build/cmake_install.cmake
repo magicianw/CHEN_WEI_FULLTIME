@@ -107,11 +107,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/code_project/catkin_ws/build/beginner_tutorials/cmake_install.cmake")
-  include("C:/code_project/catkin_ws/build/my_pkg/cmake_install.cmake")
   include("C:/code_project/catkin_ws/build/path_schedule/cmake_install.cmake")
-  include("C:/code_project/catkin_ws/build/showpath/cmake_install.cmake")
-  include("C:/code_project/catkin_ws/build/using_markers/cmake_install.cmake")
 
 endif()
 

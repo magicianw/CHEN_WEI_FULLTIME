@@ -70,8 +70,6 @@ bool get_plan(path_schedule::path_plan_service::Request& req,	path_schedule::pat
 	// greedy approach for finding a path from the current position to the goal position. During to the roadmap structure, the agent is moved along x-axis and then y-axis 
 	while ((x != req.goal_x) || (y != req.goal_y))
 	{
-		ROS_INFO("current position is (%d, %d)", x, y);
-		ROS_INFO("current path is %s", path);
 		move_flag = 0;
 
 		if (x < req.goal_x)
@@ -109,13 +107,10 @@ bool get_plan(path_schedule::path_plan_service::Request& req,	path_schedule::pat
 	vector<string> v1;
 	SplitString(path, v1, ";");
 	for (vector<string>::size_type i = 0; i != v1.size(); ++i) {
-		ROS_INFO("full leg is %s", v1[i]);
 		std::string str;
 		str = v1[i];
-		ROS_INFO("full string is %s", v1[i]);
 		vector<string> v2;
 		SplitString(str, v2, ",");
-		ROS_INFO("leg is x=%d y=%d", atoi(v2[0].c_str()), atoi(v2[1].c_str()));
 	}
 	heard_agent = 0;
 	return true;
@@ -138,32 +133,11 @@ int main(int argc, char** argv)
 	ros::Publisher roadmap_pub = n.advertise<visualization_msgs::Marker>("roadmap", 10);
 
 	ros::Rate r(30);
-	ROS_INFO("test");
 	float f = 0.0;
-	
-	
 
-	//ros::ServiceServer service = n.advertiseService("get_plan", get_plan);
-	//ROS_INFO("Ready to receive agent get_plan");
-
-	//  ros::ServiceClient client = n.serviceClient<path_schedule::path_plan_service>("get_plan");
-	//	path_schedule::path_plan_service srv;
-	//	srv.id = atoll(argv[1]);
-	//	srv.request.goal_x = atoll(argv[2]); // atoll(argv[1])
-	//  srv.request.goal_y = atoll(argv[3]);
-	//  srv.request.goal_theta = atoll(argv[4]);
-	//
-	//
-	//
-	//  ros::ServiceServer service = n.advertiseService("psplanner_path", add);
-	//  ROS_INFO("Ready to add two ints.");
 	ros::Rate loop_rate(1);
 	while (ros::ok())
 	{
-
-		//while (ros::ok())
-	//{
-
 	visualization_msgs::Marker points, line_strip, line_list;
 
 	//初始化
@@ -174,7 +148,7 @@ int main(int argc, char** argv)
 	points.pose.orientation.w = line_strip.pose.orientation.w = line_list.pose.orientation.w = 1.0;
 
 
-	//分配3个id
+	//分配id
 	points.id = 0;
 	//line_strip.id = 1;
 	line_list.id = 2;
@@ -207,16 +181,11 @@ int main(int argc, char** argv)
 	line_list.color.r = 1.0;
 	line_list.color.a = 1.0;
 
-
-
 	// Create the vertices for the points and lines
 	for (uint32_t i = 0; i < 11; ++i)
 	{
 		for (uint32_t j = 0; j < 11; ++j)
 		{
-			ROS_INFO("current_x: %d", i);
-			ROS_INFO("current_y: %d", j);
-
 			geometry_msgs::Point p;
 			p.x = i;
 			p.y = j;
@@ -255,8 +224,6 @@ int main(int argc, char** argv)
 		loop_rate.sleep();
 		ros::spinOnce();
 	}
-
-	//ros::spin();
 
 	return 0;
 }

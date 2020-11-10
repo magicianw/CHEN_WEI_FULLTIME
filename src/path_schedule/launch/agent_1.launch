@@ -1,26 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-
-    <node name="planner" pkg="path_schedule" type="psplanner" />
-
-    <node pkg="path_schedule" name="agent1" type="psagent" output = "screen">
-    <param name="id" value="1" type="int" />
-    <param name="cur_x" value="2" type="int" />
-    <param name="cur_y" value="0" type="int" />
-    <param name="cur_theta" value="0" type="int" />
-    <param name="goal_x" value="2" type="int" />
-    <param name="goal_y" value="5" type="int" />
-    <param name="goal_theta" value="0" type="int" />
+	<node pkg="path_schedule" name="agent1" type="psagent" output = "screen" args="1 2 0 0">
     </node>
-
-    <node pkg="path_schedule" name="agent2" type="psagent" output = "screen">
-    <param name="id" value="2" type="int" />
-    <param name="cur_x" value="0" type="int" />
-    <param name="cur_y" value="3" type="int" />
-    <param name="cur_theta" value="0" type="int" />
-    <param name="goal_x" value="6" type="int" />
-    <param name="goal_y" value="3" type="int" />
-    <param name="goal_theta" value="0" type="int" />
-    </node>
-
 </launch>

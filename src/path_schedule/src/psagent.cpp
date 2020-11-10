@@ -75,9 +75,6 @@ int main(int argc, char** argv)
 	srv.request.cur_x = atoi(argv[2]);
 	srv.request.cur_y = atoi(argv[3]);
 	srv.request.cur_theta = atoi(argv[4]);
-//	srv.request.goal_x = atoi(argv[5]);
-//	srv.request.goal_y = atoi(argv[6]);
-//	srv.request.goal_theta = atoi(argv[7]);
 
 	int agent_current_x = srv.request.cur_x;
 	int agent_current_y = srv.request.cur_y;
@@ -126,7 +123,6 @@ int main(int argc, char** argv)
 				std::string str1, str2;
 				str1 = v1[i];
 				str2 = v1[i+1];
-				ROS_INFO("plot path %s", str1);
 				vector<string> v2_1, v2_2;
 				SplitString(str1, v2_1, ",");
 				SplitString(str2, v2_2, ",");
@@ -154,17 +150,13 @@ int main(int argc, char** argv)
 			if (client.call(srv))
 			{
 				path_generate_flag = 1;
-				ROS_INFO("test: %s", srv.response.path);
 				vector<string> v1;
 				SplitString(srv.response.path, v1, ";");
 				for (vector<string>::size_type i = 0; i != v1.size(); ++i) {
-					ROS_INFO("full leg is %s", v1[i]);
 					std::string str;
 					str = v1[i];
-					ROS_INFO("full string is %s", v1[i]);
 					vector<string> v2;
 					SplitString(str, v2, ",");
-					ROS_INFO("leg is x=%d y=%d", atoi(v2[0].c_str()), atoi(v2[1].c_str()));
 					agent_current_x = atoi(v2[0].c_str());
 					agent_current_y = atoi(v2[1].c_str());
 				}
@@ -181,11 +173,5 @@ int main(int argc, char** argv)
 		loop_rate.sleep();
 		++count;
 	}
-
-
-
-	// client.call(srv);
-	// ROS_INFO("call srv");
-	// ROS_INFO("Sum: %ld", (long int)srv.response.result);
 	return 0;
 }
