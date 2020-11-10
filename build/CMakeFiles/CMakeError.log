@@ -1,0 +1,15 @@
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: C:/code_project/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake /nologo cmTC_3d011\fast && 	"D:\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\nmake.exe"  -f CMakeFiles\cmTC_3d011.dir\build.make /nologo -L                  CMakeFiles\cmTC_3d011.dir\build
+Building C object CMakeFiles/cmTC_3d011.dir/CheckIncludeFile.c.obj
+	"D:\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx64\x64\cl.exe" @C:\Users\Wei\AppData\Local\Temp\nmAF78.tmp
+CheckIncludeFile.c
+C:\code_project\catkin_ws\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory
+NMAKE : fatal error U1077: “"D:\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx64\x64\cl.exe"”: 返回代码“0x2”
+Stop.
+NMAKE : fatal error U1077: “"D:\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\nmake.exe"”: 返回代码“0x2”
+Stop.
+
+
+

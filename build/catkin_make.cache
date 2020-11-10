@@ -1,0 +1,2 @@
+beginner_tutorials;my_pkg;path_schedule;showpath;using_markers
+-DCMAKE_BUILD_TYPE=RelWithDebInfo -DCATKIN_DEVEL_PREFIX=C:\code_project\catkin_ws\devel -DCMAKE_INSTALL_PREFIX=C:\code_project\catkin_ws\install -G NMake Makefiles
